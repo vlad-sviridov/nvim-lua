@@ -1,0 +1,7 @@
+plugin
+
+.init.vim
+.luarc.json
+.lua/sniprundd
+init.old
+nvim_init.old
