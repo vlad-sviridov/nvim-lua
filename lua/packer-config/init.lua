@@ -14,9 +14,13 @@ return require('packer').startup(function(use)
     use ('onsails/lspkind.nvim') --> vscode-like pictograms for neovim lsp completion items
     use ('hrsh7th/vim-vsnip') --> this  plugin provides some plugins integration
     use ("williamboman/nvim-lsp-installer")
-    use ("brymer-meneses/grammar-guard.nvim") --> check grammar
-
-
+    use {
+        "brymer-meneses/grammar-guard.nvim",
+        requires = {
+            "neovim/nvim-lspconfig",
+            "williamboman/nvim-lsp-installer"
+        }
+    }
     --> treesitter
     use ({ 'nvim-treesitter/nvim-treesitter'})
     use ('nvim-treesitter/nvim-treesitter-refactor')
