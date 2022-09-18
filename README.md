@@ -1,4 +1,5 @@
 # nvim-lua
-My Neovim setup
+My Neovim setupa\.
 
-![preview](./img/nvim-lua-screenshot.png)
+![preview](/img/nvim-lua-screenshot.png)
+
