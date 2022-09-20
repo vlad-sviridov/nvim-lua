@@ -1,3 +1,5 @@
+require("grammar-guard").init()
+
 require("lspconfig").grammar_guard.setup({
   cmd = { '/path/to/ltex-ls' }, -- add this if you install ltex-ls yourself
 	settings = {
