@@ -21,17 +21,15 @@ return require('packer').startup(function(use)
             "williamboman/nvim-lsp-installer"
         }
     }
+    use("jose-elias-alvarez/null-ls.nvim") --> inject lsp diagnistocs, formattings, code actions, and more ...
     --> treesitter
-    use ({ 'nvim-treesitter/nvim-treesitter'})
+    use ({ 'nvim-treesitter/nvim-treesitter' })
     use ('nvim-treesitter/nvim-treesitter-refactor')
     use ('nvim-treesitter/playground')
     use ('nvim-treesitter/nvim-treesitter-textobjects')
 
     --> telescope
-    use ({
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        requires = { {'nvim-lua/plenary.nvim'} }
-      })
+    use ('nvim-telescope/telescope.nvim')
 
     --> other plagin
     use ("kyazdani42/nvim-tree.lua") --> file explorer
@@ -46,4 +44,5 @@ return require('packer').startup(function(use)
 	    "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     })
+    use("nvim-lua/plenary.nvim")
 end)
