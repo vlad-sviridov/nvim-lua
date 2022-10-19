@@ -1,44 +1,68 @@
-require('nvim-treesitter.configs').setup({
-  ensure_installed = {
-    "python",
-    "json",
-    "html",
-    "css"
-  },
-
-  sync_install = false,
-
-  highlight = {
-    enable = true,
-    disable = { "c", "rust" },
-    additionadditional_vim_regex_highlighting = false,
-  },
-  --> refactor module
-  refactor = {
-    highlight_current_scope = { enable = false},
-    highlight_definitions = {
-      enable = true,
-      -- Set to false if you have an `updatetime` of ~100.
-      clear_on_cursor_move = true,
-    },
-    smart_rename = {
-        enable = true,
-        keymaps = {
-          smart_rename = "grr",
-        },
-      },
-    navigation = {
-      enable = true,
-      keymaps = {
-        goto_definition = "gnd",
-        list_definitions = "gnD",
-        list_definitions_toc = "gO",
-        goto_next_usage = "<A-*>",
-        goto_previous_usage = "<A-#>",
-      },
-    },
-  },
-  --> treesitter playground
+require("nvim-treesitter.configs").setup({
+	--> parsers <--
+	ensure_installed = {
+		"c",
+		"css",
+		"bash",
+		"fish",
+		"javascript",
+		"lua",
+		"typescript",
+	},
+	sync_install = false,
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+	indent = {
+		enable = true,
+	},
+	--> textobjects selection <--
+	textobjects = {
+		select = {
+			enable = true,
+			-- Automatically jump forward to textobj, similar to targets.vim
+			lookahead = true,
+			keymaps = {
+				-- You can use the capture groups defined in textobjects.scm
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ac"] = "@class.outer",
+				["ic"] = "@class.inner",
+			},
+		},
+		--> LSP interop <--
+		lsp_interop = {
+			enable = true,
+			border = "none",
+			peek_definition_code = {
+				["<leader>df"] = "@function.outer",
+				["<leader>dF"] = "@class.outer",
+			},
+		},
+	},
+	--> moving between textobjext <--
+	move = {
+		enable = true,
+		set_jumps = true, -- whether to set jumps in the jumplist
+		goto_next_start = {
+			["]]"] = "@function.outer",
+			["]m"] = "@class.outer",
+		},
+		goto_next_end = {
+			["]["] = "@function.outer",
+			["]M"] = "@class.outer",
+		},
+		goto_previous_start = {
+			["[["] = "@function.outer",
+			["[m"] = "@class.outer",
+		},
+		goto_previous_end = {
+			["[]"] = "@function.outer",
+			["[M"] = "@class.outer",
+		},
+	},
+	--> treesitter playground <--
 	playground = {
 		enable = true,
 		disable = {},
@@ -56,14 +80,24 @@ require('nvim-treesitter.configs').setup({
 			goto_node = "<cr>",
 			show_help = "?",
 		},
-  },
-  --> rainbow tags
+	},
+	--> refactor module
+	refactor = {
+		smart_rename = {
+			enable = true,
+			keymaps = {
+				smart_rename = "grr",
+			},
+		},
+	},
+	--> rainbow tags
 	rainbow = {
 		enable = false,
 		extended_mode = true,
 		max_file_lines = nil,
 	},
-  autotag = {
-    enable = true,
-  }
+	context_commentstring = {
+		enable = false,
+		enable_autocmd = false,
+	},
 })

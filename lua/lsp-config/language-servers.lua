@@ -35,7 +35,7 @@ local on_attach = function(client, bufnr)
 end
 
 local servers = {
-    "pyright",
+    "pylsp",
 }
 
 ---@diagnostic disable-next-line: undefined-global

@@ -22,6 +22,8 @@ return require('packer').startup(function(use)
         }
     }
     use("jose-elias-alvarez/null-ls.nvim") --> inject lsp diagnistocs, formattings, code actions, and more ...
+    use('kkharji/lspsaga.nvim') --> icons for lsp diagnistocs
+
     --> treesitter
     use ({ 'nvim-treesitter/nvim-treesitter' })
     use ('nvim-treesitter/nvim-treesitter-refactor')
