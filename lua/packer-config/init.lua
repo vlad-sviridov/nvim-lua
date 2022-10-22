@@ -6,6 +6,8 @@ return require('packer').startup(function(use)
     use ('projekt0n/github-nvim-theme')
 
     --> lsp
+    use ('williamboman/mason.nvim') --> install and manage lsp
+    use ('williamboman/mason-lspconfig.nvim') --> bridg between mason.nvim and lspconfig
     use ('neovim/nvim-lspconfig') --> collection of configurations for built-in LSP client
     use ('hrsh7th/nvim-cmp') --> autocompletion plugin
     use ('hrsh7th/cmp-nvim-lsp') --> lsp source for nvim-cmp
@@ -13,15 +15,14 @@ return require('packer').startup(function(use)
     use ('L3MON4D3/LuaSnip') --> snippets plugin
     use ('onsails/lspkind.nvim') --> vscode-like pictograms for neovim lsp completion items
     use ('hrsh7th/vim-vsnip') --> this  plugin provides some plugins integration
-    use ("williamboman/nvim-lsp-installer")
     use {
         "brymer-meneses/grammar-guard.nvim",
         requires = {
             "neovim/nvim-lspconfig",
-            "williamboman/nvim-lsp-installer"
         }
     }
     use("jose-elias-alvarez/null-ls.nvim") --> inject lsp diagnistocs, formattings, code actions, and more ...
+    use("jayp0521/mason-null-ls.nvim") --> bridg between mason.nvim and null-ls
     use('kkharji/lspsaga.nvim') --> icons for lsp diagnistocs
 
     --> treesitter
