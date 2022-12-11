@@ -23,12 +23,10 @@ set.completeopt = "menuone,noselect"
 
 -- set.relativenumber = true
 set.cursorline = true
-set.cursorlineopt = "number"
-
+set.cursorlineopt = "both"
 set.clipboard = "unnamedplus"
 set.mouse = "a"
 
 set.fillchars = "eob: "
 
 vim.notify = require("notify")
-
